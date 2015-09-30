@@ -37,9 +37,14 @@ public class Paciente implements Comparable<Paciente>{
 
 	
 	@Override
+	public String toString() {
+		return nombre + ", " + descripcion + ", " + codigo;
+	}
+
+	@Override
 	public int compareTo(Paciente o) {
 		// TODO Auto-generated method stub
-		return o.getCodigo().compareTo(this.codigo);
+		return -o.getCodigo().compareTo(this.codigo);
 	}
 	
 

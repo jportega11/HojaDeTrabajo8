@@ -10,6 +10,7 @@ public class Driver {
 		String linea = "";
 		int cantLineas = 0;
 		int contador = 0;
+		
 		try {//revisa la cantidad de líneas que hay en el archivo
 			reader = new BufferedReader(new FileReader("pacientes.txt"));
 			while (reader.readLine() != null) cantLineas++;
@@ -39,10 +40,9 @@ public class Driver {
 			parte[2] = parte[2].substring(1);
 			pacientes.add(new Paciente(parte[0], parte[1], parte[2]));//se colocan en el arreglo
 		}
+		VectorHeap<Paciente> colaPacientes = new VectorHeap<Paciente>(pacientes);
 		for(int i = 0; i < cantLineas; i++){
-			System.out.println(pacientes.get(i).getNombre());
-			System.out.println(pacientes.get(i).getDescripcion());
-			System.out.println(pacientes.get(i).getCodigo());
+			System.out.println(colaPacientes.remove().toString());
 		}
 	}
 
