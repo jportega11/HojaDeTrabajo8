@@ -1,3 +1,9 @@
+//Universidad del Valle de Guatemala
+//Algoritmos y Estructuras de Datos
+//Guillermo Javier de Leon Archila, 14022
+//Jose pablo Ortega Grajeda, 14565
+//Driver: clase encargada de leer el archivo de texto y mostrar el orden en pantalla
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -31,18 +37,17 @@ public class Driver {
 			e.printStackTrace();
 		}
 		String[] parte;
-		Vector<Paciente> pacientes = new Vector<Paciente>();
-		//Paciente[] pacientes = new Paciente[cantLineas];//se instancia un arreglo de asociaciones para guardar las palabras
+		Vector<Paciente> pacientes = new Vector<Paciente>();//Se instancia un vector para guardar cada paciente
 		for(int i = 0; i < cantLineas; i++){
-			parte = lineas[i].split(",");//se separa la palabra donde se encuentre la coma
-			//parte[0] = parte[0].substring(1);//se obtiene la primera palabra
+			parte = lineas[i].split(",");//se separa la frase donde se encuentre la coma
 			parte[1] = parte[1].substring(1);//se obtiene la segunda palabra
-			parte[2] = parte[2].substring(1);
-			pacientes.add(new Paciente(parte[0], parte[1], parte[2]));//se colocan en el arreglo
+			parte[2] = parte[2].substring(1);//se obtiene la tercera palabra (en el índice 0 está la primera)
+			pacientes.add(new Paciente(parte[0], parte[1], parte[2]));//se colocan en el vector
 		}
-		VectorHeap<Paciente> colaPacientes = new VectorHeap<Paciente>(pacientes);
+
+		VectorHeap<Paciente> colaPacientes = new VectorHeap<Paciente>(pacientes); //se instancia un VectorHeap con el Vector de pacientes
 		for(int i = 0; i < cantLineas; i++){
-			System.out.println(colaPacientes.remove().toString());
+			System.out.println(colaPacientes.remove().toString());//se remueve el menor y se muestra en pantalla
 		}
 	}
 

@@ -1,3 +1,7 @@
+//Universidad del Valle de Guatemala
+//Algoritmos y Estructuras de Datos
+//Guillermo Javier de Leon Archila, 14022
+//Jose pablo Ortega Grajeda, 14565
 
 public interface PriorityQueue <E>{
 	
